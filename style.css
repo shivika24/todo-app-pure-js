@@ -1,0 +1,70 @@
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  
+  #main{
+    margin-left: 30%;
+    margin-top: 10%;
+  }
+  #main-head{
+    margin-left: 15%;
+    color: #318db9;
+    text-shadow: 1px 1px 5px#4f7d86;
+  }
+  @media only screen and (max-width: 600px) {
+    #main{
+      margin-left: 0%;
+    }
+    #main-head{
+      margin-left: 25%;
+    }
+  }
+  .row {
+    padding:0;
+    margin:0;
+  }
+  #button{
+    background-color: #7fb5df;
+    color: white;
+  }
+  
+  .todo-items {
+    min-width: 350px;
+  }
+  
+  .item {
+    background-color: #fff;
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .item:first-child {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+  
+  .item:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+  
+  .delete-button {
+    float: right;
+    border: none;
+    outline: none;
+    padding: 2px 5px;
+    margin-left: 10px;
+    font-size: 1.1rem;
+    font-weight: 550;
+  }
+  .delete-button:hover
+  {
+    color: #318db9;
+  }
+  .checked { 
+    background-color: pink;
+    text-decoration: line-through;
+  }
+  
