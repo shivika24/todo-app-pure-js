@@ -15,6 +15,7 @@ let list = [];
         isCompleted: false
       };
       list.push(todo);
+      addToLocalstorage(list); 
       display(list)
       todoInput.value = '';
     }
@@ -41,21 +42,13 @@ let list = [];
     });
   
   }
-  todoItemsList.addEventListener('click', function(event) {
-    if (event.target.type === 'checkbox') {
-      toggle(event.target.parentElement.getAttribute('id'));
-    }
-    if (event.target.classList.contains('delete-button')) {
-      deleteTodo(event.target.parentElement.getAttribute('id'));
-    }
-  });
   function toggle(id) {
     list.forEach(function(item) {
       if (item.id == id) {
         item.isCompleted = !item.isCompleted;
       }
     });
-    display(list)
+    addToLocalstorage(list);
   }
   
   function deleteTodo(id) {
@@ -65,6 +58,28 @@ let list = [];
     list = list.filter(function(item) {
       return item.id != id;
     });
-    display(list)
+    addToLocalstorage(list);
     }
   }  
+  
+  function addToLocalstorage(list) {
+    localStorage.setItem('list', JSON.stringify(list));
+    display(list);
+  }
+
+  function getFromLocalstorage() {
+    const getList = localStorage.getItem('list');
+    if (getList) {
+      list = JSON.parse(getList);
+      display(list);
+    }
+  }
+  getFromLocalstorage();
+  todoItemsList.addEventListener('click', function(event) {
+    if (event.target.type === 'checkbox') {
+      toggle(event.target.parentElement.getAttribute('id'));
+    }
+    if (event.target.classList.contains('delete-button')) {
+      deleteTodo(event.target.parentElement.getAttribute('id'));
+    }
+  });
